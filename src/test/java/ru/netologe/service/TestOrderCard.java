@@ -44,7 +44,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
 
 
     }
@@ -57,9 +57,10 @@ public class TestOrderCard {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button__content")).click();
 
-        assertEquals("Имя и Фамилия указаны неверно. Допустимы только русские буквы, пробелы и дефисы",
-                driver.findElement(By.xpath("//span[@data-test-id='name][contains(@class,'input_invalid')]//span[@class='input__sub")).getText().trim());
+        String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
+        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
 
+        Assertions.assertEquals(expected, actual);
 
 
     }
@@ -75,7 +76,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
 
 
     }
@@ -91,7 +92,8 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         String expected = "Поле обязательно для заполнения";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
+        
     }
 
     @Test
@@ -105,7 +107,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         String expected = "Поле обязательно для заполнения";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -118,7 +120,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         String expected = "Поле обязательно для заполнения";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -131,7 +133,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         String expected = "Телефон указан неверно";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -144,7 +146,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         String expected = "Телефон указан неверно";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -157,7 +159,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         String expected = "Телефон указан неверно";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -170,7 +172,7 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text")).getText().trim();
         String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -183,6 +185,6 @@ public class TestOrderCard {
         String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
